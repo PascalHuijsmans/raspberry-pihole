@@ -1,0 +1,6 @@
+#|-----------------|
+#|Pari's Block List|
+#|-----------------|
+
+# TV Related:
+nrdp25.logs.netflix.com
