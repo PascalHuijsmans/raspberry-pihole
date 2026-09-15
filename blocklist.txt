@@ -6,4 +6,7 @@
 nrdp25.logs.netflix.com
 events.goskope.com
 
+# Log Data CM Laptop
+dv-eu-prod.sentinelone.net
+
 # END #

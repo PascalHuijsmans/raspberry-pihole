@@ -137,11 +137,15 @@ curl -sSL https://install.pi-hole.net | bash
 - Make sure you make a PAT in github on this repository, make sure it has the Content (Readonly) permission.
 - Add the token to the system and give it the right mod
 ```bash
+sudo -I
+
 cd /etc/pihole/
-sudo tee /etc/pihole/blocklist.env >/dev/null <<'EOF'
+
+tee /etc/pihole/blocklist.env >/dev/null <<'EOF'
 export PAT=github_pat_....
 EOF
 chown root:root /etc/pihole/blocklist.env
+
 chmod 600 /etc/pihole/blocklist.env
 
 nano load-custom-blocklist.sh
@@ -150,14 +154,23 @@ nano load-custom-blocklist.sh
 - Prepare the folder and make it executable, then test like the cron will do
 ```bash
 mkdir -p /etc/pihole/private-lists
+
 chmod +x load-custom-blocklist.sh
-sudo bash -c '. /etc/pihole/blocklist.env && /etc/pihole/load-custom-blocklist.sh'; echo "exit $?"
+
+bash -c '. /etc/pihole/blocklist.env && /etc/pihole/load-custom-blocklist.sh'; echo "exit $?"
 ```
 - Then add it to the Pi Hole setup with:
 ```
 file:///etc/pihole/private-lists/blocklist.txt
 ```
+- Last add the cron
+```bash
+tee /etc/cron.d/pihole-customlist >/dev/null <<'EOF'
+*/15 * * * * root . /etc/pihole/blocklist.env && /etc/pihole/load-custom-blocklist.sh >/dev/null 2>&1
+EOF
 
+chmod 644 /etc/cron.d/pihole-customlist
+```
 
 ## Log rotate
 
