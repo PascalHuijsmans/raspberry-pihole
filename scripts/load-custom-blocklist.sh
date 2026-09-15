@@ -6,15 +6,18 @@ REPO="PascalHuijsmans/raspberry-pihole"
 FILE="blocklist.txt"
 DEST="/etc/pihole/private-lists/blocklist.txt"
 ETAG="$DEST.etag"
+mkdir -p "$(dirname "$DEST")"
 TMP="$(mktemp)"
 trap 'rm -f "$TMP" "$TMP.h"' EXIT
 
-code=$(curl -fsSL -w '%{http_code}' -D "$TMP.h" \
-  -H "Authorization: Bearer $PAT" \
-  -H "Accept: application/vnd.github.raw" \
-  ${ETAG:+$([ -f "$ETAG" ] && echo -H "If-None-Match: $(cat "$ETAG")")} \
-  "https://api.github.com/repos/$REPO/contents/$FILE" \
-  -o "$TMP" || true)
+args=(
+  -fsSL -w '%{http_code}' -D "$TMP.h" -o "$TMP"
+  -H "Authorization: Bearer $PAT"
+  -H "Accept: application/vnd.github.raw"
+)
+[ -f "$ETAG" ] && args+=(-H "If-None-Match: $(cat "$ETAG")")
+
+code=$(curl "${args[@]}" "https://api.github.com/repos/$REPO/contents/$FILE" || true)
 
 [ "$code" = 304 ] && exit 0
 [ "$code" = 200 ] || { echo "http $code" >&2; exit 1; }
