@@ -16,6 +16,7 @@ browser.events.data.microsoft.com
 events.getpostman.com
 discovery.meethue.com
 diag.meethue.com
+diagnostics.meethue.com
 events.goskope.com
 
 # END #
