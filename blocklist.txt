@@ -10,4 +10,7 @@ events.goskope.com
 dv-eu-prod.sentinelone.net
 mobile.events.data.microsoft.com
 
+# Hue
+discovery.meethue.com
+
 # END #
