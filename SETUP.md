@@ -117,11 +117,8 @@ sudo apt install -y ufw
 ```
 ```bash
 sudo ufw allow from 192.168.1.0/24 to any port 22 proto tcp
-sudo ufw allow from 192.168.1.0/24 to any port 53 proto tcp
-sudo ufw allow from 192.168.1.0/24 to any port 53 proto udp
 sudo ufw allow from 192.168.1.0/24 to any port 443 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 80 proto tcp
-
 sudo ufw allow from 192.168.1.0/24 to any port 53 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 53 proto udp
 sudo ufw deny out from any to 192.0.0.0/8
@@ -130,6 +127,12 @@ sudo ufw default allow outgoing
 sudo ufw logging off
 sudo ufw enable
 sudo ufw status verbose
+```
+
+## Brute Force Ban
+```bash
+sudo apt-get install -y fail2ban
+sudo systemctl enable --now fail2ban
 ```
 
 # PiHole
