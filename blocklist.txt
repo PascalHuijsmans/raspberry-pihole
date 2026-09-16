@@ -8,6 +8,7 @@ events.goskope.com
 
 # Log Data CM Laptop
 dv-eu-prod.sentinelone.net
+euce1-102.sentinelone.net
 mobile.events.data.microsoft.com
 
 # Hue

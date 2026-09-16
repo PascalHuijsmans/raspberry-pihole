@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+export PATH=/usr/local/bin:/usr/bin:/bin
+
 set -euo pipefail
 
 PAT="${PAT:?}"
