@@ -15,5 +15,6 @@ events.getpostman.com
 
 # Hue
 discovery.meethue.com
+diag.meethue.com
 
 # END #
