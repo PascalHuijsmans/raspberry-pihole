@@ -90,6 +90,10 @@ sudo raspi-config
 sudo apt update && sudo apt upgrade -y
 ```
 
+# Auto update
+
+
+
 ## Fixed IP
 ```bash
 nmcli con show
@@ -98,9 +102,13 @@ sudo nmcli con mod "Wired connection 1" \
   ipv4.method manual \
   ipv4.addresses 192.168.1.114/24 \
   ipv4.gateway 192.168.1.254 \
-  ipv4.dns "1.1.1.1 1.1.0.0"
-
+  ipv4.dns "1.1.1.1 1.0.0.1" \
+  ipv4.ignore-auto-dns yes \
+  ipv6.dns "2606:4700:4700::1111" \
+  ipv6.ignore-auto-dns yes
+&&
 sudo nmcli con up "Wired connection 1"
+
 ```
 
 ## UFW
@@ -172,12 +180,7 @@ EOF
 chmod 644 /etc/cron.d/pihole-customlist
 ```
 
-## Log rotate
-
-## DNS Mask rules
-
-## Build Refresh Tasks
-
 ## Uptime measure
+
 
 ## Fallback
