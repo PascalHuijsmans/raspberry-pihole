@@ -11,6 +11,8 @@ dv-eu-prod.sentinelone.net
 euce1-102.sentinelone.net
 mobile.events.data.microsoft.com
 eu-mobile.events.data.microsoft.com
+eu-office.events.data.microsoft.com
+browser.events.data.microsoft.com
 events.getpostman.com
 discovery.meethue.com
 diag.meethue.com
