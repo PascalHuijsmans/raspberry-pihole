@@ -4,17 +4,16 @@
 
 # TV Related:
 nrdp25.logs.netflix.com
-events.goskope.com
 
-# Log Data CM Laptop
+# Telemetry Tracking
+otel.gitkraken.com
 dv-eu-prod.sentinelone.net
 euce1-102.sentinelone.net
 mobile.events.data.microsoft.com
 eu-mobile.events.data.microsoft.com
 events.getpostman.com
-
-# Hue
 discovery.meethue.com
 diag.meethue.com
+events.goskope.com
 
 # END #
