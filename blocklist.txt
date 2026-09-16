@@ -8,5 +8,6 @@ events.goskope.com
 
 # Log Data CM Laptop
 dv-eu-prod.sentinelone.net
+mobile.events.data.microsoft.com
 
 # END #
