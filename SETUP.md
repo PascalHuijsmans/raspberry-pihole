@@ -135,6 +135,17 @@ sudo apt-get install -y fail2ban
 sudo systemctl enable --now fail2ban
 ```
 
+## SSH Hardening
+```bash
+sudo tee /etc/ssh/sshd_config.d/99-hardening.conf >/dev/null <<'EOF'
+PermitRootLogin no
+KbdInteractiveAuthentication no
+MaxAuthTries 3
+EOF
+
+sudo systemctl restart ssh
+```
+
 # PiHole
 
 ## Install
